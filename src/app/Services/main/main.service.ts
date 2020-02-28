@@ -38,7 +38,7 @@ export class MainService {
             if (data.type != "" && data.amount > 0 && data.date != "") {
                 data.idUser = this.userLogged;
                 let newDate = new Date();
-                data.createAt = newDate.getFullYear() + "-" + this.leftpad(newDate.getMonth() + 1, 2) + "-" + this.leftpad(newDate.getDate(), 2);
+                data.createAt = "2019-12-01";
                 resolve(this.goals.push(data));
             } else {
                 reject();
