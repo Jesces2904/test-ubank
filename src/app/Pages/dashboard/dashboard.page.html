@@ -1,0 +1,67 @@
+<ion-content class=" col-md-10 align-self-end">
+    <ion-header>
+        <app-menu></app-menu>
+    </ion-header>
+    <div class="main-content" id="panel">
+        <div
+            class="header pb-6 d-flex align-items-center"
+            style="min-height: 500px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;"
+        >
+            <!-- Mask -->
+            <span class="mask bg-gradient-default opacity-8"></span>
+            <!-- Header container -->
+            <div class="container-fluid d-flex align-items-center">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <h1 class="display-2 text-white">Hola {{displayName}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header border-0">
+                            <h3 class="mb-0">Metas</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col" class="sort">Tipo</th>
+                                        <th scope="col" class="sort">Fecha</th>
+                                        <th scope="col" class="sort">Monto</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+                                    <tr *ngFor="let goal of allGoals">
+                                        <td>{{goal.typeName}}</td>
+                                        <td>{{goal.date}}</td>
+                                        <td>${{goal.amount}}</td>
+                                        <td class="text-right">
+                                            <div class="dropdown">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <a class="dropdown-item" href="/new-rule/{{goal.$key}}">Agregar Regla</a>
+                                                    <a class="dropdown-item" href="/edit-goal/{{goal.$key}}">Editar</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Card footer -->
+                        <div class="card-footer py-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

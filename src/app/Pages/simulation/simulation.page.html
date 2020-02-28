@@ -1,0 +1,78 @@
+<ion-content class=" col-md-10 align-self-end">
+    <ion-header>
+        <app-menu></app-menu>
+    </ion-header>
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    
+                    <ul class="navbar-nav align-items-center  ml-md-auto ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="media align-items-center">
+                                    <span class="avatar avatar-sm rounded-circle">
+                                        <img alt="Image placeholder" src={{photoUrl}} />
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">Metas</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <div class="row">
+                <div class="col-xl-6" *ngFor="let goal of allGoals">
+                    <div class="card card-profile">
+                      <div class="card-header border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                        <div class="d-flex justify-content-between">
+                          <a>Tipo: {{goal.typeName}}</a>
+                          <a>Fecha Creación: {{goal.createAt}}</a>
+                          <a>Fecha Finalización: {{goal.date}}</a>
+                        </div>
+                      </div>
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card-profile-stats d-flex justify-content-center">
+                                        <div>
+                                            <span class="heading">{{goal.activations}}</span>
+                                            <span class="description">Activaciones</span>
+                                        </div>
+                                        <div>
+                                            <span class="heading">${{goal.sumTotal}}</span>
+                                            <span class="description">Monto total ahorrado</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <ul>
+                                  <li *ngFor="let activities of goal.matches">
+                                    {{activities.message}}
+                                  </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

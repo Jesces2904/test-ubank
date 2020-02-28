@@ -1,0 +1,135 @@
+<ion-content class=" col-md-10 align-self-end">
+    <ion-header>
+        <app-menu></app-menu>
+    </ion-header>
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Navbar links -->
+                    <ul class="navbar-nav align-items-center  ml-md-auto ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="media align-items-center">
+                                    <span class="avatar avatar-sm rounded-circle">
+                                        <img alt="Image placeholder" src={{photoUrl}} />
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">Nueva Regla</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header border-0">
+                            <h3 class="mb-0">Reglas</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col" class="sort">Equipo</th>
+                                        <th scope="col" class="sort">Evento</th>
+                                        <th scope="col" class="sort">Monto</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+                                    <tr *ngFor="let rule of rules">
+                                        <td>{{rule.teamName}}</td>
+                                        <td>{{rule.eventName}}</td>
+                                        <td>${{rule.amount}}</td>
+                                        <td class="text-right">
+                                            <div class="dropdown">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <a class="dropdown-item" href="/edit-rule/{{rule.$key}}">Editar Regla</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Card footer -->
+                        <div class="card-footer py-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 order-xl-1">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row align-items-center"></div>
+                        </div>
+                        <div class="card-body">
+                            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-username">Equipo</label>
+                                                <select class="form-control" name="team" ngModel>
+                                                    <option value="">Seleccione un equipo</option>
+                                                    <option value="{{team.id}}" *ngFor="let team of allTeams">{{team.name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-email">Evento</label>
+                                                <select class="form-control" name="event" ngModel>
+                                                    <option value="">Seleccione un evento</option>
+                                                    <option value="1">Jugar</option>
+                                                    <option value="2">Ganar</option>
+                                                    <option value="3">Por Gol</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-first-name">Monto</label>
+                                                <input type="number" min="0" id="input-first-name" class="form-control" placeholder="0" ngModel name="amount" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <button class="btn btn-large btn-primary" type="submit">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
